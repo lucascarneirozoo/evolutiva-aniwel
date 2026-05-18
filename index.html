@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolutiva Bem-Estar Animal — Aniwel na América Latina</title>
+<meta name="description" content="Representante oficial do sistema Aniwel na América Latina. Tecnologia de avaliação de comportamento animal para zoológicos, aquários e criadouros.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F4EE;
+    --earth: #3D2B1F;
+    --moss: #4A5E3A;
+    --moss-light: #7A9460;
+    --bark: #8C6A4E;
+    --sand: #D4B896;
+    --white: #FDFCFA;
+    --text: #2C2018;
+    --text-muted: #7A6A5A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--earth);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0.22;
+  }
+
+  .nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav-logos {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .logo-evolutiva {
+    height: 52px;
+    background: white;
+    border-radius: 6px;
+    padding: 4px 8px;
+    display: block;
+  }
+
+  .logo-aniwel {
+    height: 36px;
+    filter: invert(1) brightness(2);
+    opacity: 0.9;
+    display: block;
+  }
+
+  .logo-sep {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.3);
+  }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .nav-cta:hover { background: rgba(255,255,255,0.1); }
+
+  .hero-body {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    max-width: 720px;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--sand);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 300;
+    color: white;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em { font-style: italic; color: var(--sand); }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--moss);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: background 0.3s;
+    width: fit-content;
+    border: none;
+  }
+  .hero-cta:hover { background: var(--moss-light); }
+
+  .hero-scroll {
+    position: relative;
+    z-index: 10;
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .scroll-line { width: 40px; height: 1px; background: rgba(255,255,255,0.3); }
+  .scroll-text { font-size: 11px; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+
+  /* SECTIONS */
+  section { padding: 5rem 3rem; }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--moss);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--earth);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--bark); }
+
+  /* SOBRE */
+  .sobre {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .sobre-text p {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .sobre-img {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    height: 420px;
+  }
+
+  .sobre-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .sobre-img-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: rgba(30,20,10,0.85);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  /* SISTEMA */
+  .sistema {
+    background: var(--earth);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sistema-bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0.15;
+  }
+
+  .sistema .section-label { color: var(--sand); }
+  .sistema .section-title { color: white; }
+  .sistema .section-title em { color: var(--sand); }
+
+  .sistema-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5px;
+    margin-top: 3rem;
+    background: rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .sistema-card {
+    background: rgba(255,255,255,0.04);
+    padding: 2rem;
+    border-left: 2px solid transparent;
+    transition: all 0.3s;
+  }
+
+  .sistema-card:hover { background: rgba(255,255,255,0.08); border-left-color: var(--moss-light); }
+
+  .sistema-card-icon { width: 36px; height: 36px; margin-bottom: 1rem; opacity: 0.6; }
+
+  .sistema-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .sistema-card p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  /* SERVIÇOS */
+  .servicos { background: var(--cream); }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .servico-card {
+    background: var(--white);
+    border: 1px solid rgba(60,40,20,0.08);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .servico-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(60,40,20,0.08); }
+
+  .servico-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--sand);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .servico-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--earth);
+    margin-bottom: 0.5rem;
+  }
+
+  .servico-card p { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+
+  /* GALERIA */
+  .galeria { background: var(--white); padding: 5rem 0; }
+  .galeria-header { padding: 0 3rem; margin-bottom: 2.5rem; }
+
+  .galeria-strip {
+    display: flex;
+    gap: 1px;
+    overflow: hidden;
+    height: 360px;
+  }
+
+  .galeria-strip .gfoto {
+    flex: 1;
+    overflow: hidden;
+    min-width: 80px;
+  }
+
+  .galeria-strip .gfoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: saturate(0.8);
+    transition: transform 0.5s ease, filter 0.3s;
+    display: block;
+  }
+
+  .galeria-strip .gfoto:hover img {
+    filter: saturate(1);
+    transform: scale(1.04);
+  }
+
+  /* PÚBLICO */
+  .publico { background: var(--moss); }
+  .publico .section-label { color: rgba(255,255,255,0.5); }
+  .publico .section-title { color: white; }
+  .publico .section-title em { color: rgba(255,255,255,0.7); }
+
+  .publico-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+
+  .publico-tag {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+  }
+
+  /* CONTATO */
+  .contato {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contato-info p { font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 0.5rem; }
+  .contato-info strong { color: var(--text); font-weight: 400; }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #25D366;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 2rem;
+    transition: background 0.3s;
+  }
+  .whatsapp-btn:hover { background: #1ebe5d; }
+
+  .email-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    color: var(--earth);
+    border: 1px solid var(--bark);
+    padding: 0.85rem 1.75rem;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 0.75rem;
+    transition: all 0.3s;
+  }
+  .email-btn:hover { background: var(--earth); color: white; }
+
+  .contato-visual {
+    height: 420px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .contato-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: saturate(0.85);
+    display: block;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--earth);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logos { display: flex; align-items: center; gap: 1rem; }
+  .footer-logo-ev { height: 38px; background: white; border-radius: 4px; padding: 3px 6px; display: block; }
+  .footer-logo-an { height: 26px; filter: invert(1) brightness(2); opacity: 0.7; display: block; }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 300; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    section { padding: 3.5rem 1.5rem; }
+    .nav { padding: 1.5rem; }
+    .hero-body { padding: 2rem 1.5rem; }
+    .sobre, .contato { grid-template-columns: 1fr; gap: 2rem; }
+    .sobre-img { height: 280px; }
+    .contato-visual { display: none; }
+    footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+    .galeria-header { padding: 0 1.5rem; }
+    .galeria-strip { height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Foto: onça-pintada no Pantanal brasileiro (David Waite / Unsplash) -->
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=1400&q=80&auto=format&fit=crop" alt="">
+
+  <nav class="nav">
+    <div class="nav-logos">
+      <img class="logo-evolutiva" src="logo-evolutiva.jpeg" alt="Evolutiva Bem-Estar Animal">
+      <div class="logo-sep"></div>
+      <img class="logo-aniwel" src="logo-aniwel.png" alt="Aniwel by Africa Safari">
+    </div>
+    <a href="https://wa.me/554598434862" class="nav-cta">Fale conosco</a>
+  </nav>
+
+  <div class="hero-body">
+    <p class="hero-label">Representante Oficial na América Latina</p>
+    <h1 class="hero-title">Tecnologia a serviço do <em>bem-estar animal</em></h1>
+    <p class="hero-sub">Implementamos o Aniwel — sistema de avaliação de comportamento animal — em zoológicos, aquários e criadouros, com capacitação completa de equipes.</p>
+    <a href="https://wa.me/554598434862?text=Olá! Gostaria de saber mais sobre o Aniwel e os serviços da Evolutiva." class="hero-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Solicitar apresentação
+    </a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Conheça nossa proposta</span>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="sobre-text">
+    <p class="section-label">Quem somos</p>
+    <h2 class="section-title">Evolutiva <em>Bem-Estar Animal</em></h2>
+    <p>Somos representantes exclusivos do Aniwel na América Latina — um sistema europeu de ponta para avaliação e gestão do bem-estar de animais em cativeiro.</p>
+    <p>Nossa atuação vai além da tecnologia: capacitamos equipes inteiras em zoológicos, aquários e criadouros nos fundamentos do cuidado animal, garantindo que o sistema seja utilizado com excelência.</p>
+    <p>O investimento é ajustado ao tamanho do acervo da instituição, tornando a solução acessível a diferentes escalas de operação.</p>
+  </div>
+  <div class="sobre-img">
+    <img src="foto-tablet.jpeg" alt="Profissional utilizando o Aniwel em campo">
+    <div class="sobre-img-badge">Sistema em uso — campo real</div>
+  </div>
+</section>
+
+<!-- SISTEMA ANIWEL -->
+<section class="sistema">
+  <!-- Foto de fundo: onça-pintada Pantanal -->
+  <img class="sistema-bg" src="https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=800&q=80&auto=format&fit=crop" alt="">
+  <p class="section-label">O sistema</p>
+  <h2 class="section-title">O que é o <em>Aniwel</em></h2>
+  <div class="sistema-grid">
+    <div class="sistema-card">
+      <svg class="sistema-card-icon" viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" stroke="#7A9460" stroke-width="1.5"/><path d="M10 18h16M10 12h10M10 24h12" stroke="#7A9460" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Avaliações de bem-estar</h3>
+      <p>Registros estruturados do comportamento individual de cada animal, com histórico completo e rastreabilidade.</p>
+    </div>
+    <div class="sistema-card">
+      <svg class="sistema-card-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="12" stroke="#7A9460" stroke-width="1.5"/><path d="M18 10v8l5 3" stroke="#7A9460" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Gestão de tarefas</h3>
+      <p>Treinamentos, enriquecimentos, cuidados médicos, alimentação e manutenção de recintos — tudo em um só lugar.</p>
+    </div>
+    <div class="sistema-card">
+      <svg class="sistema-card-icon" viewBox="0 0 36 36" fill="none"><path d="M6 28L18 8l12 20H6z" stroke="#7A9460" stroke-width="1.5" stroke-linejoin="round"/><path d="M18 18v6M18 14v1" stroke="#7A9460" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Alertas e indicadores</h3>
+      <p>Notificações inteligentes que identificam variações no padrão comportamental, permitindo intervenções precoces.</p>
+    </div>
+    <div class="sistema-card">
+      <svg class="sistema-card-icon" viewBox="0 0 36 36" fill="none"><rect x="4" y="8" width="28" height="20" rx="3" stroke="#7A9460" stroke-width="1.5"/><path d="M14 8V6a2 2 0 014 0v2" stroke="#7A9460" stroke-width="1.5"/><path d="M12 20l3 3 9-9" stroke="#7A9460" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Acesso mobile</h3>
+      <p>Uso em tablet e smartphone diretamente nos recintos, sem necessidade de retornar ao escritório para registros.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos">
+  <p class="section-label">Nossos serviços</p>
+  <h2 class="section-title">Como <em>atuamos</em></h2>
+  <div class="servicos-grid">
+    <div class="servico-card">
+      <div class="servico-num">01</div>
+      <h3>Implantação do sistema</h3>
+      <p>Instalação, configuração e personalização do Aniwel para a realidade do acervo da sua instituição, do cadastro inicial dos animais à estrutura de setores.</p>
+    </div>
+    <div class="servico-card">
+      <div class="servico-num">02</div>
+      <h3>Capacitação de equipes</h3>
+      <p>Treinamentos presenciais e/ou remotos para tratadores, biólogos e gestores — cobrindo tanto o uso do sistema quanto os fundamentos do bem-estar animal.</p>
+    </div>
+    <div class="servico-card">
+      <div class="servico-num">03</div>
+      <h3>Suporte contínuo</h3>
+      <p>Acompanhamento após a implantação, com suporte técnico, atualizações e consultoria para uso pleno das funcionalidades.</p>
+    </div>
+    <div class="servico-card">
+      <div class="servico-num">04</div>
+      <h3>Consultoria em bem-estar</h3>
+      <p>Avaliação das práticas institucionais e recomendações baseadas em evidências para aprimorar o cuidado animal antes, durante e após a adoção do sistema.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria">
+  <div class="galeria-header">
+    <p class="section-label">Sistema em ação</p>
+    <h2 class="section-title">Veja o <em>Aniwel</em> funcionando</h2>
+  </div>
+  <div class="galeria-strip">
+    <!-- Sua foto do tablet -->
+    <div class="gfoto">
+      <img src="foto-tablet.jpeg" alt="Profissional usando Aniwel em campo">
+    </div>
+    <!-- Sua foto do sistema -->
+    <div class="gfoto">
+      <img src="foto-sistema.jpeg" alt="Interface do sistema Aniwel">
+    </div>
+    <!-- Onça-pintada — Pantanal, Brasil (Sam Power / Unsplash) -->
+    <div class="gfoto">
+      <img src="https://images.unsplash.com/photo-1612541376798-6b42d8a7ca42?w=800&q=80&auto=format&fit=crop&crop=center" alt="Onça-pintada — Panthera onca, Pantanal">
+    </div>
+    <!-- Arara-azul — espécie brasileira (Unsplash) -->
+    <div class="gfoto">
+      <img src="https://images.unsplash.com/photo-1606567595334-d39972c85dbe?w=800&q=80&auto=format&fit=crop&crop=center" alt="Arara-azul — Anodorhynchus hyacinthinus">
+    </div>
+  </div>
+</section>
+
+<!-- PÚBLICO -->
+<section class="publico">
+  <p class="section-label">Para quem</p>
+  <h2 class="section-title">Instituições que <em>cuidam de animais</em></h2>
+  <p style="color:rgba(255,255,255,0.65);font-size:15px;font-weight:300;max-width:560px;line-height:1.8;">Atendemos qualquer instituição que mantenha animais sob cuidados humanos e busque elevar seus padrões de bem-estar.</p>
+  <div class="publico-tags">
+    <span class="publico-tag">Zoológicos</span>
+    <span class="publico-tag">Aquários</span>
+    <span class="publico-tag">Criadouros conservacionistas</span>
+    <span class="publico-tag">Santuários de animais</span>
+    <span class="publico-tag">Centros de reabilitação</span>
+    <span class="publico-tag">Parques temáticos com animais</span>
+    <span class="publico-tag">Instituições de pesquisa</span>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato">
+  <div class="contato-info">
+    <p class="section-label">Entre em contato</p>
+    <h2 class="section-title">Vamos <em>conversar</em></h2>
+    <p>Não trabalhamos com tabelas de preço fixas — cada proposta é ajustada ao tamanho e às necessidades da sua instituição.</p>
+    <p style="margin-top:1rem;"><strong>Angelita Capobianco</strong></p>
+    <p>+55 45 9843-4862</p>
+    <p>evolutivabemestaranimal@gmail.com</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;margin-top:2rem;">
+      <a href="https://wa.me/554598434862?text=Olá! Gostaria de saber mais sobre o Aniwel e os serviços da Evolutiva." class="whatsapp-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar pelo WhatsApp
+      </a>
+      <a href="mailto:evolutivabemestaranimal@gmail.com" class="email-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        Enviar e-mail
+      </a>
+    </div>
+  </div>
+  <div class="contato-visual">
+    <!-- Capivara — espécie brasileira (Unsplash) -->
+    <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80&auto=format&fit=crop&crop=center" alt="Capivara — Hydrochoerus hydrochaeris">
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logos">
+    <img class="footer-logo-ev" src="logo-evolutiva.jpeg" alt="Evolutiva Bem-Estar Animal">
+    <img class="footer-logo-an" src="logo-aniwel.png" alt="Aniwel">
+  </div>
+  <p>© 2025 Evolutiva Bem-Estar Animal — Representante Aniwel na América Latina</p>
+</footer>
+
+</body>
+</html>
